@@ -1,0 +1,852 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda San Angel - Las mejores ofertas en un solo lugar</title>
+    <style>
+        :root {
+            --yellow: #FFD700;
+            --light-yellow: #FFEB99;
+            --deep-yellow: #FFB700;
+            --orange: #FF8C00;
+            --light-orange: #FFA64D;
+            --red: #FF4500;
+            --light-red: #FF6347;
+            --dark-red: #B22222;
+            --white: #FFFFFF;
+            --black: #212121;
+            --gray: #757575;
+            --light-gray: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--yellow), var(--light-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            margin-right: 10px;
+            color: var(--yellow);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--yellow);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-cta {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .header-cta:hover {
+            background-color: var(--deep-yellow);
+            color: var(--black);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("C:\imagenes\descarga.jpg") center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--orange), var(--red));
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 69, 0, 0.4);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--orange);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--yellow), var(--orange), var(--red));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--orange);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .product-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background-color: var(--white);
+            border: 2px solid var(--orange);
+            color: var(--orange);
+            margin: 5px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--orange);
+            color: var(--white);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            background-color: var(--red);
+            color: var(--white);
+            padding: 5px 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .product-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+        
+        .old-price {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+        
+        .discount {
+            font-size: 0.9rem;
+            color: var(--red);
+            font-weight: 600;
+        }
+        
+        .product-rating {
+            color: var(--yellow);
+            margin-bottom: 15px;
+        }
+        
+        .product-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: var(--orange);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .product-btn:hover {
+            background-color: var(--red);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light-yellow), var(--light-orange), var(--light-red));
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 6rem;
+            font-family: Georgia, serif;
+            color: rgba(255, 140, 0, 0.2);
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            color: var(--black);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 0;
+            background-color: var(--orange);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background-color: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: var(--dark-red);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--yellow);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--orange);
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--orange);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 4px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">🔥</span>
+                    <h1>Tienda San Angel</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#carrito" class="header-cta">Carrito 🛒</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Las mejores ofertas están aquí</h2>
+                <p>Descubre productos increíbles con descuentos exclusivos. ¡No esperes más para renovar tus dispositivos favoritos!</p>
+                <a href="#productos" class="cta-btn">Ver ofertas calientes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué elegirnos?</h2>
+                <p>Nos destacamos por ofrecer la mejor experiencia de compra con beneficios exclusivos</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Envío Gratis</h3>
+                    <p>En todos los pedidos superiores a $499. Recibe tu compra en tiempo récord sin costos adicionales.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Pago Seguro</h3>
+                    <p>Tus transacciones están protegidas con los mejores sistemas de seguridad del mercado.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Devoluciones Sencillas</h3>
+                    <p>30 días para cambios y devoluciones. Si no estás satisfecho, te devolvemos tu dinero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Productos destacados</h2>
+                <p>Encuentra los artículos más populares con los mejores descuentos</p>
+            </div>
+            
+            <div class="product-filters">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Electrónicos</button>
+                <button class="filter-btn">Hogar</button>
+                <button class="filter-btn">Moda</button>
+                <button class="filter-btn">Ofertas</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">-25%</div>
+                    <img src="C:\imagenes\iphone.jpg" alt="Smartphone Modelo X" class="product-img">
+                    <div class="product-info">
+                        <h3>Smartphone Modelo X</h3>
+                        <div class="product-price">
+                            <span class="current-price">$4,499</span>
+                            <span class="old-price">$5,999</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (128)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">-40%</div>
+                    <img src="C:\imagenes\s.jpg" alt="Smartwatch Pro" class="product-img">
+                    <div class="product-info">
+                        <h3>Smartwatch Pro</h3>
+                        <div class="product-price">
+                            <span class="current-price">$1,499</span>
+                            <span class="old-price">$2,499</span>
+                        </div>
+                        <div class="product-rating">★★★★☆ (86)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">-30%</div>
+                    <img src="C:\imagenes\audi.jpg" alt="Audífonos Inalámbricos" class="product-img">
+                    <div class="product-info">
+                        <h3>Audífonos Inalámbricos</h3>
+                        <div class="product-price">
+                            <span class="current-price">$899</span>
+                            <span class="old-price">$1,299</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (213)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge">-15%</div>
+                    <img src="C:\imagenes\tablet.jpg" alt="Tablet Ultradelgada" class="product-img">
+                    <div class="product-info">
+                        <h3>Tablet Ultradelgada</h3>
+                        <div class="product-price">
+                            <span class="current-price">$3,399</span>
+                            <span class="old-price">$3,999</span>
+                        </div>
+                        <div class="product-rating">★★★★☆ (74)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-badge">-50%</div>
+                    <img src="C:\imagenes\tv.jpg" alt="Smart TV 43" class="product-img">
+                    <div class="product-info">
+                        <h3>Smart TV 43"</h3>
+                        <div class="product-price">
+                            <span class="current-price">$5,499</span>
+                            <span class="old-price">$10,999</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (56)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-badge">-35%</div>
+                    <img src="C:\imagenes\laptops.jpg" alt="Laptop Ultrabook" class="product-img">
+                    <div class="product-info">
+                        <h3>Laptop Ultrabook</h3>
+                        <div class="product-price">
+                            <span class="current-price">$12,999</span>
+                            <span class="old-price">$19,999</span>
+                        </div>
+                        <div class="product-rating">★★★★☆ (42)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-badge">-20%</div>
+                    <img src="C:\imagenes\camara.jpg" alt="Cámara Digital" class="product-img">
+                    <div class="product-info">
+                        <h3>Cámara Digital</h3>
+                        <div class="product-price">
+                            <span class="current-price">$6,399</span>
+                            <span class="old-price">$7,999</span>
+                        </div>
+                        <div class="product-rating">★★★★★ (28)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-badge">-45%</div>
+                    <img src="C:\imagenes\consola.jpg" alt="Consola de Videojuegos" class="product-img">
+                    <div class="product-info">
+                        <h3>Consola de Videojuegos</h3>
+                        <div class="product-price">
+                            <span class="current-price">$6,599</span>
+                            <span class="old-price">$11,999</span>
+                        </div>
+                        <div class="product-rating">★★★★☆ (93)</div>
+                        <button class="product-btn">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Miles de personas confían en HotDeals para encontrar las mejores ofertas</p>
+            </div>
+            
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Increíble servicio y precios inmejorables. Mi compra llegó antes de lo esperado y en perfectas condiciones. Sin duda volveré a comprar aquí.</p>
+                        <div class="testimonial-author">
+                            <img src="C:\imagenes\personas.jpg" alt="María García" class="author-img">
+                            <div class="author-info">
+                                <h4>María García</h4>
+                                <p>Cliente desde 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">La mejor tienda en línea que he probado. Atención al cliente excepcional y productos de gran calidad. El descuento que obtuve fue un gran plus.</p>
+                        <div class="testimonial-author">
+                            <img src="C:\imagenes\person.jpg" alt="Carlos Rodríguez" class="author-img">
+                            <div class="author-info">
+                                <h4>Carlos Rodríguez</h4>
+                                <p>Cliente desde 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Desde que descubrí Tienda San Angel no compro en otro lugar. Sus promociones son reales y el proceso de compra es muy sencillo. Totalmente recomendable.</p>
+                        <div class="testimonial-author">
+                            <img src="C:\imagenes\gente.jpg" alt="Laura Martínez" class="author-img">
+                            <div class="author-info">
+                                <h4>Laura Martínez</h4>
+                                <p>Cliente desde 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>No te pierdas nuestras ofertas</h2>
+            <p>Suscríbete a nuestro boletín y recibe las mejores promociones directamente en tu correo.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Tu correo electrónico" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Suscribirse</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>HotDeals</h3>
+                    <p>Tu mejor aliado para encontrar las ofertas más calientes del mercado. Precios increíbles en productos de la más alta calidad.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
